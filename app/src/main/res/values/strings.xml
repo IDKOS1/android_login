@@ -1,4 +1,4 @@
 <resources>
     ...
-    <string name="app_content_text">안드로이드 수강생 여러분 안녕하세요?</string>
+    <string name="app_name">Login App</string>
 </resources>
