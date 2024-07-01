@@ -58,13 +58,17 @@ class SignInActivity : AppCompatActivity() {
             val id = userId.text.toString()
             val password = userPassword.text.toString()
             if (id.isBlank() || password.isEmpty()) {
-                showToast("아이디 혹은 비밀번호를 확인해 주세요.")
-            } else {
-                if(id in UserData.userList) {
+                showToast("아이디 혹은 비밀번호를 입력해 주세요.")
+            } else if (id in UserData.userList) {
+                if (UserData.userList[id]?.password == password) {
                     val intent = Intent(this, HomeActivity::class.java)
                     intent.putExtra("userData", UserData.userList[id])
                     startActivity(intent)
+                } else {
+                    showToast("비밀번호가 일치하지 않습니다.")
                 }
+            } else {
+                showToast("아이디 혹은 비밀번호를 확인해 주세요.")
             }
         }
 
